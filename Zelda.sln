@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3130990B-F89
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zelda.Api", "src\Zelda.Api\Zelda.Api.csproj", "{E60147DD-202C-4186-885C-E51293FDD749}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2AA54FF4-AF6A-4B2E-B53A-65B8D746982F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zelda.Api.IntegrationTests", "test\Zelda.Api.IntegrationTests\Zelda.Api.IntegrationTests.csproj", "{0EAFED03-321D-4E22-A644-21C5A96A6739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +36,21 @@ Global
 		{E60147DD-202C-4186-885C-E51293FDD749}.Release|x64.Build.0 = Release|Any CPU
 		{E60147DD-202C-4186-885C-E51293FDD749}.Release|x86.ActiveCfg = Release|Any CPU
 		{E60147DD-202C-4186-885C-E51293FDD749}.Release|x86.Build.0 = Release|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Debug|x64.Build.0 = Debug|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Debug|x86.Build.0 = Debug|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|x64.ActiveCfg = Release|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|x64.Build.0 = Release|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|x86.ActiveCfg = Release|Any CPU
+		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E60147DD-202C-4186-885C-E51293FDD749} = {3130990B-F893-463A-8048-0E2311863159}
+		{0EAFED03-321D-4E22-A644-21C5A96A6739} = {2AA54FF4-AF6A-4B2E-B53A-65B8D746982F}
 	EndGlobalSection
 EndGlobal
