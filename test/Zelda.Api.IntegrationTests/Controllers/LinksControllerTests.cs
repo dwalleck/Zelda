@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
+using FluentAssertions;
 
 namespace Zelda.Api.IntegrationTests.Controllers
 {
@@ -19,16 +20,14 @@ namespace Zelda.Api.IntegrationTests.Controllers
         public async Task GetAllLinks_ReturnsOk()
         {
             var response = await _client.GetAsync("api/links");
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Fact]
         public async Task GetAllLinks_ReturnsContentType()
         {
             var response = await _client.GetAsync("api/links");
-            Assert.Equal("application/json", response.Content.Headers.ContentType.MediaType);
+            response.Content.Headers.ContentType.MediaType.Should().Be("application/json");
         }
-
-        
     }
 }
