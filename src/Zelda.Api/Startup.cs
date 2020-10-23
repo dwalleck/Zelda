@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Zelda.Data;
 using System.IO;
+using AutoMapper;
 
 namespace Zelda
 {
@@ -37,9 +38,9 @@ namespace Zelda
                 var filePath = Path.Combine(AppContext.BaseDirectory, "Zelda.Api.xml");
                 c.IncludeXmlComments(filePath);
             });
-
             services.AddDbContext<ZeldaContext>(options =>
                     options.UseNpgsql(Configuration["ConnectionStrings:ZeldaContext"]));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
