@@ -36,7 +36,7 @@ namespace Zelda.Controllers
         public async Task<ActionResult<IEnumerable<Link>>> GetLinks()
         {
             var links = await _linksRepo.GetLinksAsync();
-            return Ok(links);
+            return Ok(_mapper.Map<IEnumerable<LinkDto>>(links));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Zelda.Controllers
         public async Task<ActionResult<Link>> GetLink(Guid id)
         {
             var link = await _linksRepo.GetLinkAsync(id);
-            return link == null ? NotFound() : Ok(link);
+            return link == null ? NotFound() : Ok(_mapper.Map<LinkDto>(link));
         }
 
         /// <summary>
@@ -67,7 +67,6 @@ namespace Zelda.Controllers
             {
                 return NotFound();
             }
-
             _mapper.Map(link, linkEntity);
             _linksRepo.UpdateLink(linkEntity);
 
@@ -80,7 +79,6 @@ namespace Zelda.Controllers
             {
                 return NotFound();
             }
-
             return NoContent();
         }
 

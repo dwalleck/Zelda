@@ -33,7 +33,7 @@ namespace Zelda.Controllers
         public async Task<ActionResult<IEnumerable<Tag>>> GetTags()
         {
             var tags = await _tagsRepo.GetTagsAsync();
-            return Ok(tags);
+            return Ok(_mapper.Map<IEnumerable<TagDto>>(tags));
         }
 
         [HttpGet("{id}")]
@@ -42,11 +42,11 @@ namespace Zelda.Controllers
         public async Task<ActionResult<Tag>> GetTag(Guid id)
         {
             var tag = await _tagsRepo.GetTagAsync(id);
-            return tag == null ? NotFound() : Ok(tag);
+            return tag == null ? NotFound() : Ok(_mapper.Map<TagDto>(tag));
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTag(Guid id, TagToUpdateDto tag)
+        public async Task<IActionResult> UpdateTag(Guid id, TagToUpdateDto tag)
         {
             var tagEntity = await _tagsRepo.GetTagAsync(id);
             if (tagEntity == null)
@@ -70,8 +70,6 @@ namespace Zelda.Controllers
             return NoContent();
         }
 
-        // POST: api/Tags
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Tag>> CreateTag(TagToCreateDto tag)
         {
@@ -91,7 +89,6 @@ namespace Zelda.Controllers
                 tagToReturn);
         }
 
-        // DELETE: api/Tags/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTag(Guid id)
         {
