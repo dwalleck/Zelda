@@ -41,7 +41,7 @@ namespace Zelda
             });
             services.AddDbContext<ZeldaContext>(options =>
                     options.UseNpgsql(Configuration["ConnectionStrings:ZeldaContext"]));
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(typeof(Startup));
             services.AddTransient<ILinksRepository, LinksRepository>();
             services.AddTransient<ITagsRepository, TagsRepository>();
         }

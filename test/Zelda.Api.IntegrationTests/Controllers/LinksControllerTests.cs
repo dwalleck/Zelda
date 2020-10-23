@@ -8,6 +8,7 @@ using FluentAssertions;
 
 namespace Zelda.Api.IntegrationTests.Controllers
 {
+    [Collection("Sequential")]
     public class LinksControllerTests : IClassFixture<WebApplicationFactory<Startup>>
     {
         private readonly HttpClient _client;
