@@ -1,15 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30615.102
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3130990B-F893-463A-8048-0E2311863159}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zelda.Api", "src\Zelda.Api\Zelda.Api.csproj", "{E60147DD-202C-4186-885C-E51293FDD749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zelda.Api", "src\Zelda.Api\Zelda.Api.csproj", "{E60147DD-202C-4186-885C-E51293FDD749}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2AA54FF4-AF6A-4B2E-B53A-65B8D746982F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zelda.Api.IntegrationTests", "test\Zelda.Api.IntegrationTests\Zelda.Api.IntegrationTests.csproj", "{0EAFED03-321D-4E22-A644-21C5A96A6739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zelda.Api.IntegrationTests", "test\Zelda.Api.IntegrationTests\Zelda.Api.IntegrationTests.csproj", "{0EAFED03-321D-4E22-A644-21C5A96A6739}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3B1C1FB-23DF-4912-B301-7E278F68E1FC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +24,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E60147DD-202C-4186-885C-E51293FDD749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -49,8 +51,14 @@ Global
 		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|x86.ActiveCfg = Release|Any CPU
 		{0EAFED03-321D-4E22-A644-21C5A96A6739}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E60147DD-202C-4186-885C-E51293FDD749} = {3130990B-F893-463A-8048-0E2311863159}
 		{0EAFED03-321D-4E22-A644-21C5A96A6739} = {2AA54FF4-AF6A-4B2E-B53A-65B8D746982F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7540615C-504F-4B81-A263-86D4365FFAA5}
 	EndGlobalSection
 EndGlobal

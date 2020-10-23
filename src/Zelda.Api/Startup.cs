@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Zelda.Data;
+using System.IO;
 
 namespace Zelda
 {
@@ -33,6 +34,8 @@ namespace Zelda
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Zelda", Version = "v1" });
+                var filePath = Path.Combine(AppContext.BaseDirectory, "Zelda.Api.xml");
+                c.IncludeXmlComments(filePath);
             });
 
             services.AddDbContext<ZeldaContext>(options =>

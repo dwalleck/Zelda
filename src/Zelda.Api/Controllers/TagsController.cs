@@ -28,7 +28,7 @@ namespace Zelda.Controllers
             return await _context.Tags.ToListAsync();
         }
 
-        // GET: api/Tags/5
+        
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

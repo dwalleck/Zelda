@@ -21,6 +21,9 @@ namespace Zelda.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Gets a list of saved links
+        /// </summary>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Link>>> GetLink()
@@ -28,6 +31,10 @@ namespace Zelda.Controllers
             return await _context.Links.ToListAsync();
         }
 
+        /// <summary>
+        /// Gets the details for a specific link
+        /// </summary>
+        /// <param name="id">The link id</param>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
