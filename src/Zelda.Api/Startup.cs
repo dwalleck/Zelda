@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Zelda.Data;
 using System.IO;
 using AutoMapper;
+using Zelda.Api.Services;
 
 namespace Zelda
 {
@@ -41,6 +42,8 @@ namespace Zelda
             services.AddDbContext<ZeldaContext>(options =>
                     options.UseNpgsql(Configuration["ConnectionStrings:ZeldaContext"]));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddTransient<ILinksRepository, LinksRepository>();
+            services.AddTransient<ITagsRepository, TagsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
