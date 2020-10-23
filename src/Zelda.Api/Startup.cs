@@ -47,6 +47,11 @@ namespace Zelda
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Zelda v1"));
+                app.UseReDoc(c => 
+                {
+                    c.RoutePrefix = "docs";
+                    c.SpecUrl = "/swagger/v1/swagger.json";
+                });
             }
 
             app.UseHttpsRedirection();
