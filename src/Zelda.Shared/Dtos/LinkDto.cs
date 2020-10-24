@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Zelda.Shared.Dtos
 {
     public class LinkDto
@@ -11,5 +12,7 @@ namespace Zelda.Shared.Dtos
         public string Name { get; set; }
 
         public string Url { get; set; }
+
+        public List<TagDto> Tags { get; set; }
     }
 }

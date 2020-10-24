@@ -31,7 +31,6 @@ namespace Zelda
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -54,7 +53,7 @@ namespace Zelda
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Zelda v1"));
-                app.UseReDoc(c => 
+                app.UseReDoc(c =>
                 {
                     c.RoutePrefix = "docs";
                     c.SpecUrl = "/swagger/v1/swagger.json";

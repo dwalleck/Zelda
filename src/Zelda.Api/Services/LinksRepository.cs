@@ -30,7 +30,7 @@ namespace Zelda.Api.Services
 
         public async Task<IEnumerable<Link>> GetLinksAsync()
         {
-            return await _context.Links.ToListAsync();
+            return await _context.Links.Include(l => l.Tags).ToListAsync();
         }
 
         public async Task<Link> GetLinkAsync(Guid id)
