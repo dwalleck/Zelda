@@ -35,7 +35,9 @@ namespace Zelda.Api.Services
 
         public async Task<Link> GetLinkAsync(Guid id)
         {
-            return await _context.Links.FindAsync(id);
+            return await _context.Links
+                .Include(l => l.Tags)
+                .FirstOrDefaultAsync(l => l.Id == id);
         }
 
         public void DeleteLink(Link link)

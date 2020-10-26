@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace Zelda.Shared.Dtos
 {
     public class LinkDto

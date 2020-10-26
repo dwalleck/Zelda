@@ -18,12 +18,15 @@ namespace Zelda.Controllers
     public class LinksController : ControllerBase
     {
         private readonly ILinksRepository _linksRepo;
+        private readonly ITagsRepository _tagsRepo;
         private readonly IMapper _mapper;
 
-        public LinksController(ILinksRepository linksRepo, IMapper mapper)
+        public LinksController(ILinksRepository linksRepo, ITagsRepository tagsRepo, IMapper mapper)
         {
             _linksRepo = linksRepo ??
                 throw new ArgumentNullException(nameof(linksRepo));
+            _tagsRepo = tagsRepo ??
+                throw new ArgumentNullException(nameof(tagsRepo));
             _mapper = mapper ??
                 throw new ArgumentNullException(nameof(mapper));
         }
@@ -122,6 +125,46 @@ namespace Zelda.Controllers
                 return NotFound();
             }
             _linksRepo.DeleteLink(link);
+            await _linksRepo.SaveChangesAsync();
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Associates a tag with a link
+        /// </summary>
+        /// <param name="linkId">The id of the link</param>
+        /// <param name="tagId">The id of the tag</param>
+        /// <returns></returns>
+        [HttpPost("{linkId}/tags")]
+        public async Task<IActionResult> AssociateTagWithLink(Guid linkId, Guid tagId)
+        {
+            var linkEntity = await _linksRepo.GetLinkAsync(linkId);
+            var tagEntity = await _tagsRepo.GetTagAsync(tagId);
+            if (linkEntity == null || tagEntity == null)
+            {
+                return NotFound();
+            }
+            linkEntity.Tags.Add(tagEntity);
+            await _linksRepo.SaveChangesAsync();
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Removes the association between a link and a tag
+        /// </summary>
+        /// <param name="linkId">The id of the link</param>
+        /// <param name="tagId">The id of the tag</param>
+        /// <returns></returns>
+        [HttpDelete("{linkId}/tags/{tagId}")]
+        public async Task<IActionResult> DissociateTagFromLink(Guid linkId, Guid tagId)
+        {
+            var linkEntity = await _linksRepo.GetLinkAsync(linkId);
+            var tagEntity = await _tagsRepo.GetTagAsync(tagId);
+            if (linkEntity == null || tagEntity == null)
+            {
+                return NotFound();
+            }
+            linkEntity.Tags.Remove(tagEntity);
             await _linksRepo.SaveChangesAsync();
             return NoContent();
         }
