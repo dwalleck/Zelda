@@ -14,5 +14,7 @@ namespace Zelda.Api.Services
         bool LinkExists(Guid id);
         Task<bool> SaveChangesAsync();
         void UpdateLink(Link link);
+        void AssociateTagWithLink(Link link, Tag tag);
+        void DissociateTagFromLink(Link link, Tag tag);
     }
 }

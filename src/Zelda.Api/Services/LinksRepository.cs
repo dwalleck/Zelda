@@ -50,6 +50,16 @@ namespace Zelda.Api.Services
             _context.Entry(link).State = EntityState.Modified;
         }
 
+        public void AssociateTagWithLink(Link link, Tag tag)
+        {
+            link.Tags.Add(tag);
+        }
+
+        public void DissociateTagFromLink(Link link, Tag tag)
+        {
+            link.Tags.Remove(tag);
+        }
+
         public async Task<bool> SaveChangesAsync() => await _context.SaveChangesAsync() > 0;
 
         public bool LinkExists(Guid id) => _context.Links.Any(l => l.Id == id);

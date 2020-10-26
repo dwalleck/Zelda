@@ -144,7 +144,7 @@ namespace Zelda.Controllers
             {
                 return NotFound();
             }
-            linkEntity.Tags.Add(tagEntity);
+            _linksRepo.AssociateTagWithLink(linkEntity, tagEntity);
             await _linksRepo.SaveChangesAsync();
             return NoContent();
         }
@@ -164,7 +164,7 @@ namespace Zelda.Controllers
             {
                 return NotFound();
             }
-            linkEntity.Tags.Remove(tagEntity);
+            _linksRepo.DissociateTagFromLink(linkEntity, tagEntity);
             await _linksRepo.SaveChangesAsync();
             return NoContent();
         }
