@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Zelda.Data;
@@ -9,9 +10,10 @@ using Zelda.Data;
 namespace Zelda.Api.Migrations
 {
     [DbContext(typeof(ZeldaContext))]
-    partial class ZeldaContextModelSnapshot : ModelSnapshot
+    [Migration("20201027202306_AddCreatedAt")]
+    partial class AddCreatedAt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

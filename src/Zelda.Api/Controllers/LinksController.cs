@@ -133,13 +133,15 @@ namespace Zelda.Controllers
         /// Associates a tag with a link
         /// </summary>
         /// <param name="linkId">The id of the link</param>
-        /// <param name="tagId">The id of the tag</param>
+        /// <param name="tag">The tag object to associate</param>
         /// <returns></returns>
         [HttpPost("{linkId}/tags")]
-        public async Task<IActionResult> AssociateTagWithLink(Guid linkId, Guid tagId)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> AssociateTagWithLink(Guid linkId, TagToAssociate tag)
         {
             var linkEntity = await _linksRepo.GetLinkAsync(linkId);
-            var tagEntity = await _tagsRepo.GetTagAsync(tagId);
+            var tagEntity = await _tagsRepo.GetTagAsync(tag.TagId);
             if (linkEntity == null || tagEntity == null)
             {
                 return NotFound();
@@ -156,6 +158,8 @@ namespace Zelda.Controllers
         /// <param name="tagId">The id of the tag</param>
         /// <returns></returns>
         [HttpDelete("{linkId}/tags/{tagId}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DissociateTagFromLink(Guid linkId, Guid tagId)
         {
             var linkEntity = await _linksRepo.GetLinkAsync(linkId);

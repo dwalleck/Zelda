@@ -25,6 +25,7 @@ namespace Zelda.Api.Services
             {
                 throw new ArgumentNullException(nameof(link));
             }
+            link.CreatedAt = DateTimeOffset.Now;
             _context.Links.Add(link);
         }
 
