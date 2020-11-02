@@ -12,6 +12,8 @@ namespace Zelda.Shared.Dtos
 
         public string Url { get; set; }
 
+        public DateTimeOffset CreatedAt { get; set; }
+
         public List<TagDto> Tags { get; set; }
     }
 }

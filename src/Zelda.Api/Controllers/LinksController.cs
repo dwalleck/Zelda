@@ -92,7 +92,7 @@ namespace Zelda.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-        public async Task<ActionResult<Link>> CreateLink(Link link)
+        public async Task<ActionResult<Link>> CreateLink(LinkToCreateDto link)
         {
             if (link == null)
             {
