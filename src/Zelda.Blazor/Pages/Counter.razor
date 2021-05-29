@@ -9,8 +9,13 @@
 @code {
     private int currentCount = 0;
 
-    private void IncrementCount()
+    [Inject]
+    public HttpClient HttpClient { get; set; }
+
+    private async Task IncrementCount()
     {
-        currentCount++;
+        var l = await HttpClient.GetStringAsync("api/links");
+        var links = await HttpClient.GetFromJsonAsync<List<LinkDto>>("api/links"); 
+        currentCount += links.Count;
     }
 }

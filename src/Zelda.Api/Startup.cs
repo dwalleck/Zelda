@@ -16,6 +16,7 @@ using Zelda.Data;
 using System.IO;
 using AutoMapper;
 using Zelda.Api.Services;
+using Microsoft.Net.Http.Headers;
 
 namespace Zelda
 {
@@ -51,6 +52,11 @@ namespace Zelda
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors(policy =>
+                    policy.WithOrigins("http://localhost:5000", "https://localhost:5001")
+                    .AllowAnyMethod()
+                    .WithHeaders(HeaderNames.ContentType, HeaderNames.Authorization)
+                    .AllowCredentials());
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Zelda v1"));
                 app.UseReDoc(c =>
