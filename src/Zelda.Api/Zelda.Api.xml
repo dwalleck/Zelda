@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Zelda.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Zelda.Controllers.LinksController.GetLinks">
+            <summary>
+            Gets a list of saved links
+            </summary>
+        </member>
+        <member name="M:Zelda.Controllers.LinksController.GetLink(System.Guid)">
+            <summary>
+            Gets the details for a specific link
+            </summary>
+            <param name="id">The id of the link</param>
+        </member>
+        <member name="M:Zelda.Controllers.LinksController.UpdateLink(System.Guid,Zelda.Shared.Dtos.LinkToUpdateDto)">
+            <summary>
+            Updates the specified link with the provided values
+            </summary>
+            <param name="id">The id of the link to update</param>
+            <param name="link">The updated values for the link</param>
+        </member>
+        <member name="M:Zelda.Controllers.LinksController.CreateLink(Zelda.Shared.Dtos.LinkToCreateDto)">
+            <summary>
+            Creates a link with the provided values
+            </summary>
+            <param name="link">The details of the new link to create</param>
+        </member>
+        <member name="M:Zelda.Controllers.LinksController.DeleteLink(System.Guid)">
+            <summary>
+            Deletes a link
+            </summary>
+            <param name="id">The id of the link to be deleted</param>
+        </member>
+        <member name="M:Zelda.Controllers.LinksController.AssociateTagWithLink(System.Guid,Zelda.Shared.Dtos.TagToAssociate)">
+            <summary>
+            Associates a tag with a link
+            </summary>
+            <param name="linkId">The id of the link</param>
+            <param name="tag">The tag object to associate</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zelda.Controllers.LinksController.DissociateTagFromLink(System.Guid,System.Guid)">
+            <summary>
+            Removes the association between a link and a tag
+            </summary>
+            <param name="linkId">The id of the link</param>
+            <param name="tagId">The id of the tag</param>
+            <returns></returns>
+        </member>
+        <member name="M:Zelda.Controllers.TagsController.GetTags">
+            <summary>
+            Gets a list of all tags
+            </summary>
+        </member>
+        <member name="M:Zelda.Controllers.TagsController.GetTag(System.Guid)">
+            <summary>
+            Gets a specific tag by its id
+            </summary>
+            <param name="id">The id of the tag</param>
+        </member>
+        <member name="M:Zelda.Controllers.TagsController.UpdateTag(System.Guid,Zelda.Shared.Dtos.TagToUpdateDto)">
+            <summary>
+            Updates the details of a given tag
+            </summary>
+            <param name="id">The id of the tag to update</param>
+            <param name="tag">The updated properties of the tag</param>
+        </member>
+        <member name="M:Zelda.Controllers.TagsController.CreateTag(Zelda.Shared.Dtos.TagToCreateDto)">
+            <summary>
+            Creates a new tag
+            </summary>
+            <param name="tag">The details of the tag to be created</param>
+        </member>
+        <member name="M:Zelda.Controllers.TagsController.DeleteTag(System.Guid)">
+            <summary>
+            Deletes the specified tag
+            </summary>
+            <param name="id">The id of the tag to delete</param>
+        </member>
+    </members>
+</doc>
